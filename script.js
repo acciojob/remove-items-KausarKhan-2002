@@ -5,18 +5,20 @@ let input = document.querySelector("input");
 
 let option = document.querySelectorAll("option");
 
-let color
+let color;
 
-colorSelect.addEventListener("change", (e) => {
+colorSelect.addEventListener("input", (e) => {
   color = e.target.value;
+  console.log(color);
 });
 
 input.addEventListener("click", () => {
   option.forEach((val) => {
-    if (val.innerHTML == color)  {
-        val.remove()
+    if (val.innerHTML == color) {
+      val.remove();
     }
   });
-  console.log(color);
-  
+
+  if (colorSelect.children.length == 1)
+    color = colorSelect.children[0].innerHTML;
 });
